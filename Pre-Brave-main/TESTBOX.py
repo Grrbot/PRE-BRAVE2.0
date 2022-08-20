@@ -8,6 +8,5 @@ import pandas as pd
 print("CLICKING captcha")
 time.sleep(8)
 from Capatcha import CPATCHA
-robot = pyautogui.locateOnScreen('test.png')
-print(robot)
+time.sleep(6)
 CPATCHA()

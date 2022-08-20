@@ -16,7 +16,7 @@ else:
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # YOLO LOGIC
-model = torch.hub.load("ultralytics/yolov5", "custom", path="yolov5/run7.pt", force_reload=True)
+model = torch.hub.load("ultralytics/yolov5", "custom", path="yolov5/run8-v1.pt", force_reload=True)
 model.conf = 0.82
 
 
@@ -34,10 +34,7 @@ def CHECKifworked():
             print(" Checking if I AM HUMAN IS ON SCREEN")
             pyautogui.click(332, 450)
             CPATCHA()
-        tryAgain = pyautogui.locateOnScreen("img/try_again.png")
-        if tryAgain:
-            print(" DIDNT WORK TRYING AGAIN")
-            CPATCHA()
+        
         # LOOK FOR VERIFY BUTTON AND CLICK
         time.sleep(1)
         verify = pyautogui.locateOnScreen("img/verify.png")
@@ -46,6 +43,10 @@ def CHECKifworked():
             print("PRESSING VERIFY AND FINISHING UP")
             pyautogui.click(verify)
             time.sleep(4)
+            tryAgain = pyautogui.locateOnScreen("img/try_again.png")
+            if tryAgain:
+                print(" DIDNT WORK TRYING AGAIN")
+                CPATCHA()
             # CLICK LOGIN
             print("CLICKING LOGIN")
             pyautogui.click(535, 514)
@@ -114,21 +115,24 @@ def CPATCHA():
         seaplane = "seaplane"
         boat = "boat"
         car = "car"
-        livingroom = "livingroom"
+        livingroom = "living room"
         conference = "conference"
         bedroom = "bedroom"
         lion = "lion"
         lionmane = "lion with mane"
+        lionwith = "lion with"
         dog = "dog"
         dogcollar = "dog with a collar"
         smilingdog = "smiling dog"
+        dogwith = "dog with"
         cat = "cat"
         giraffe = "giraffe"
         elephants = "elephant"
         bird = "bird"
         parrot = "parrot"
+        horsewith = "horse with"
         horse = "horse"
-
+        
 
         # Wait for images to show
         print("waiting for images to show")
@@ -173,7 +177,7 @@ def CPATCHA():
             print("LOOKING FOR TRUCKS")
             print("POINTING AI TO FIND ALL TRUCK IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/trucks/'
+            dir_path = 'runs/detect/exp/crops/truck/'
             # Iterate directory
             res = os.listdir(dir_path)
             print(res)
@@ -360,8 +364,7 @@ def CPATCHA():
                 CHECKifworked()
             break
         if car in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            print("POINTING AI TO FIND ALL CAR IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/car/'
             # Iterate directory
@@ -387,8 +390,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if livingroom in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+           
+            print("POINTING AI TO FIND ALL LIVING ROOM IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/livingroom/'
             # Iterate directory
@@ -414,8 +417,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if conference in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL CONFERENCE ROOM IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/conference room/'
             # Iterate directory
@@ -441,8 +444,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if bedroom in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL BEDROOM IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/bedroom/'
             # Iterate directory
@@ -467,36 +470,9 @@ def CPATCHA():
             else:
                 CHECKifworked()
             break
-        if lion in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
-            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/lion/'
-            # Iterate directory
-            res = os.listdir(dir_path)
-            print(res)
-            for x in range(len(res)):
-                print(res[x])
-                # CLICK THE IMAGES FOUND IN FILE
-                var2 = dir_path + res[x]
-                var1 = pyautogui.locateOnScreen(var2)
-                pyautogui.moveTo(var1)
-                print("LOOKING FOR CROPPED IMAGE")
-                print(var1)
-                print("CLICKING IMAGE")
-                pyautogui.click()
-                time.sleep(1)
-            IFNEXT = pyautogui.locateOnScreen("img/next.png")
-            if IFNEXT:
-                pyautogui.click(IFNEXT)
-                CPATCHA()
-                CHECKifworked()
-            else:
-                CHECKifworked()
-            break
         if lionmane in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL LION WITH MANE IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/lion with mane on neck/'
             # Iterate directory
@@ -521,11 +497,20 @@ def CPATCHA():
             else:
                 CHECKifworked()
             break
-        if dog in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+        # IF NEW SENTINCE INTRODUSED 
+        if lionwith in text:
+            skip = pyautogui.locateOnScreen("img/skip.png")
+            time.sleep(2)
+            print("NEW VARIABLE CLICKING SKIP TO GET ONE IN DATABASE")
+            pyautogui.click(skip)
+            time.sleep(3)
+            CPATCHA()
+        if lion in text:
+           
+            print("POINTING AI TO FIND ALL LION IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/dog/'
+            dir_path = 'runs/detect/exp/crops/lion/'
+            dir_path2 = 'runs/detect/exp/crops/lion with mane on neck/'
             # Iterate directory
             res = os.listdir(dir_path)
             print(res)
@@ -533,6 +518,19 @@ def CPATCHA():
                 print(res[x])
                 # CLICK THE IMAGES FOUND IN FILE
                 var2 = dir_path + res[x]
+                var1 = pyautogui.locateOnScreen(var2)
+                pyautogui.moveTo(var1)
+                print("LOOKING FOR CROPPED IMAGE")
+                print(var1)
+                print("CLICKING IMAGE")
+                pyautogui.click()
+                time.sleep(1)
+            res2 = os.listdir(dir_path)
+            print(res2)
+            for x in range(len(res2)):
+                print(res2[x])
+                # CLICK THE IMAGES FOUND IN FILE
+                var2 = dir_path + res2[x]
                 var1 = pyautogui.locateOnScreen(var2)
                 pyautogui.moveTo(var1)
                 print("LOOKING FOR CROPPED IMAGE")
@@ -576,7 +574,7 @@ def CPATCHA():
                 CHECKifworked()
             break
         if smilingdog in text:
-            print("LOOKING FOR boats")
+            
             print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/smiling dog/'
@@ -602,9 +600,44 @@ def CPATCHA():
             else:
                 CHECKifworked()
             break
+        # IF NEW SENTINCE INTRODUSED 
+        if dogwith in text:
+            skip = pyautogui.locateOnScreen("img/skip.png")
+            time.sleep(2)
+            print("NEW VARIABLE CLICKING SKIP TO GET ONE IN DATABASE")
+            pyautogui.click(skip)
+            time.sleep(3)
+            CPATCHA()
+        if dog in text:
+            
+            print("POINTING AI TO FIND ALL DOG IMAGES")
+            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
+            dir_path = 'runs/detect/exp/crops/dog/'
+            # Iterate directory
+            res = os.listdir(dir_path)
+            print(res)
+            for x in range(len(res)):
+                print(res[x])
+                # CLICK THE IMAGES FOUND IN FILE
+                var2 = dir_path + res[x]
+                var1 = pyautogui.locateOnScreen(var2)
+                pyautogui.moveTo(var1)
+                print("LOOKING FOR CROPPED IMAGE")
+                print(var1)
+                print("CLICKING IMAGE")
+                pyautogui.click()
+                time.sleep(1)
+            IFNEXT = pyautogui.locateOnScreen("img/next.png")
+            if IFNEXT:
+                pyautogui.click(IFNEXT)
+                CPATCHA()
+                CHECKifworked()
+            else:
+                CHECKifworked()
+            break
         if cat in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL CAT IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/cat/'
             # Iterate directory
@@ -630,8 +663,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if giraffe in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+           
+            print("POINTING AI TO FIND ALL GIRAFFE IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/giraffe/'
             # Iterate directory
@@ -657,8 +690,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if elephants in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL ELEPHANTS IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/elephants/'
             # Iterate directory
@@ -684,8 +717,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if bird in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+           
+            print("POINTING AI TO FIND ALL BIRD IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/parrot/'
             # Iterate directory
@@ -711,8 +744,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if parrot in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL PARROT IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/parrot/'
             # Iterate directory
@@ -737,9 +770,16 @@ def CPATCHA():
             else:
                 CHECKifworked()
             break
+        if horsewith in text:
+            skip = pyautogui.locateOnScreen("img/skip.png")
+            time.sleep(2)
+            print("NEW VARIABLE CLICKING SKIP TO GET ONE IN DATABASE")
+            pyautogui.click(skip)
+            time.sleep(3)
+            CPATCHA()
         if horse in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            print("LOOKING FOR HORSES")
+            print("POINTING AI TO FIND ALL HORSE IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/horse/'
             # Iterate directory
@@ -801,33 +841,16 @@ def CPATCHA():
                         text = pytesseract.image_to_string(img, lang='eng')
                         # CHECK IF TEXT WAS FOUND
                         print('FOUND : \"', text, '\"')
+                        
                         # RUN CLICK CMD BASED ON TARGET VARIABLE
-                        if train in text:
-                            print("FOUND TARGET")
-                            CPATCHA()
-                            break
-                        if truck in text:
-                            print("FOUND TARGET")
-                            CPATCHA()
-                            break
-                        if airplane in text:
-                            print("FOUND TARGET")
-                            CPATCHA()
-                            break
-                        if bike in text:
-                            print("FOUND TARGET")
-                            CPATCHA()
-                            break
-                        if motorcycle in text:
-                            print("FOUND TARGET")
-                            CPATCHA()
-                            break
-                        if bus in text:
-                            print("FOUND TARGET")
-                            CPATCHA()
-                            break
-                        if seaplane in text:
-                            print("FOUND TARGET")
+                        textlist3 = ["bus","train","boat","plane","car","seaplane","bike","motorbike","living room","lion","lion with mane","bridge","dog","dog with collar","smiling dog","cat","giraffe","elephants","bedroom","conference","bird","parrot","horse","truck"]                     
+                        target3 = [ele for ele in textlist3 if(ele in textlist3)]
+                        print("Does string contain any list element : " + str(bool(target3)))
+                        lists = str(bool(target3))
+                        # print(res)
+                        if lists == "True":
+                            print(" FOUND TARGET ")
+                            print(" FOUND TARTGETS", target3)
                             CPATCHA()
                             break
 
