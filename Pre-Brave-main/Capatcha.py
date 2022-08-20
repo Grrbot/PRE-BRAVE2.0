@@ -132,7 +132,7 @@ def CPATCHA():
         parrot = "parrot"
         horsewith = "horse with"
         horse = "horse"
-        
+        canine = "canine"
 
         # Wait for images to show
         print("waiting for images to show")
@@ -505,39 +505,41 @@ def CPATCHA():
             pyautogui.click(skip)
             time.sleep(3)
             CPATCHA()
-        if lion in text:
-           
+        if lion in text:           
             print("POINTING AI TO FIND ALL LION IMAGES")
-            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/lion/'
-            dir_path2 = 'runs/detect/exp/crops/lion with mane on neck/'
-            # Iterate directory
-            res = os.listdir(dir_path)
-            print(res)
-            for x in range(len(res)):
-                print(res[x])
-                # CLICK THE IMAGES FOUND IN FILE
-                var2 = dir_path + res[x]
-                var1 = pyautogui.locateOnScreen(var2)
-                pyautogui.moveTo(var1)
-                print("LOOKING FOR CROPPED IMAGE")
-                print(var1)
-                print("CLICKING IMAGE")
-                pyautogui.click()
-                time.sleep(1)
-            res2 = os.listdir(dir_path)
-            print(res2)
-            for x in range(len(res2)):
-                print(res2[x])
-                # CLICK THE IMAGES FOUND IN FILE
-                var2 = dir_path + res2[x]
-                var1 = pyautogui.locateOnScreen(var2)
-                pyautogui.moveTo(var1)
-                print("LOOKING FOR CROPPED IMAGE")
-                print(var1)
-                print("CLICKING IMAGE")
-                pyautogui.click()
-                time.sleep(1)
+            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI            
+            dir_path = 'runs/detect/exp/crops/lion/'            
+            if os.path.exists(dir_path):           
+                # Iterate directory
+                res = os.listdir(dir_path)
+                print(res)
+                for x in range(len(res)):
+                    print(res[x])
+                    # CLICK THE IMAGES FOUND IN FILE
+                    var2 = dir_path + res[x]
+                    var1 = pyautogui.locateOnScreen(var2)
+                    pyautogui.moveTo(var1)
+                    print("LOOKING FOR CROPPED IMAGE")
+                    print(var1)
+                    print("CLICKING IMAGE")
+                    pyautogui.click()
+                    time.sleep(1)
+            dir_path2 = 'runs/detect/exp/crops/lion with mane/'            
+            if os.path.exists(dir_path2):           
+                # Iterate directory
+                res2 = os.listdir(dir_path2)
+                print(res2)
+                for x in range(len(res2)):
+                    print(res2[x])
+                    # CLICK THE IMAGES FOUND IN FILE
+                    var2 = dir_path2 + res2[x]
+                    var1 = pyautogui.locateOnScreen(var2)
+                    pyautogui.moveTo(var1)
+                    print("LOOKING FOR CROPPED IMAGE")
+                    print(var1)
+                    print("CLICKING IMAGE")
+                    pyautogui.click()
+                    time.sleep(1)
             IFNEXT = pyautogui.locateOnScreen("img/next.png")
             if IFNEXT:
                 pyautogui.click(IFNEXT)
@@ -547,8 +549,8 @@ def CPATCHA():
                 CHECKifworked()
             break
         if dogcollar in text:
-            print("LOOKING FOR boats")
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            
+            print("POINTING AI TO FIND ALL DOGS WITH COLLAR IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/dog with collar/'
             # Iterate directory
@@ -575,7 +577,7 @@ def CPATCHA():
             break
         if smilingdog in text:
             
-            print("POINTING AI TO FIND ALL SEAPLANES IMAGES")
+            print("POINTING AI TO FIND ALL SMILING DOGOS IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
             dir_path = 'runs/detect/exp/crops/smiling dog/'
             # Iterate directory
@@ -609,24 +611,83 @@ def CPATCHA():
             time.sleep(3)
             CPATCHA()
         if dog in text:
-            
-            print("POINTING AI TO FIND ALL DOG IMAGES")
-            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/dog/'
-            # Iterate directory
-            res = os.listdir(dir_path)
-            print(res)
-            for x in range(len(res)):
-                print(res[x])
-                # CLICK THE IMAGES FOUND IN FILE
-                var2 = dir_path + res[x]
-                var1 = pyautogui.locateOnScreen(var2)
-                pyautogui.moveTo(var1)
-                print("LOOKING FOR CROPPED IMAGE")
-                print(var1)
-                print("CLICKING IMAGE")
-                pyautogui.click()
-                time.sleep(1)
+            print("POINTING AI TO FIND ALL CAININE IMAGES")
+            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI            
+            dir_path = 'runs/detect/exp/crops/dog/'            
+            if os.path.exists(dir_path):           
+                # Iterate directory
+                res = os.listdir(dir_path)
+                print(res)
+                for x in range(len(res)):
+                    print(res[x])
+                    # CLICK THE IMAGES FOUND IN FILE
+                    var2 = dir_path + res[x]
+                    var1 = pyautogui.locateOnScreen(var2)
+                    pyautogui.moveTo(var1)
+                    print("LOOKING FOR CROPPED IMAGE")
+                    print(var1)
+                    print("CLICKING IMAGE")
+                    pyautogui.click()
+                    time.sleep(1)
+            dir_path2 = 'runs/detect/exp/crops/dog with collar/'            
+            if os.path.exists(dir_path2):           
+                # Iterate directory
+                res2 = os.listdir(dir_path2)
+                print(res2)
+                for x in range(len(res2)):
+                    print(res2[x])
+                    # CLICK THE IMAGES FOUND IN FILE
+                    var2 = dir_path2 + res2[x]
+                    var1 = pyautogui.locateOnScreen(var2)
+                    pyautogui.moveTo(var1)
+                    print("LOOKING FOR CROPPED IMAGE")
+                    print(var1)
+                    print("CLICKING IMAGE")
+                    pyautogui.click()
+                    time.sleep(1)
+            IFNEXT = pyautogui.locateOnScreen("img/next.png")
+            if IFNEXT:
+                pyautogui.click(IFNEXT)
+                CPATCHA()
+                CHECKifworked()
+            else:
+                CHECKifworked()
+            break
+        if canine in text:            
+            print("POINTING AI TO FIND ALL CAININE IMAGES")
+            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI            
+            dir_path = 'runs/detect/exp/crops/dog/'            
+            if os.path.exists(dir_path):           
+                # Iterate directory
+                res = os.listdir(dir_path)
+                print(res)
+                for x in range(len(res)):
+                    print(res[x])
+                    # CLICK THE IMAGES FOUND IN FILE
+                    var2 = dir_path + res[x]
+                    var1 = pyautogui.locateOnScreen(var2)
+                    pyautogui.moveTo(var1)
+                    print("LOOKING FOR CROPPED IMAGE")
+                    print(var1)
+                    print("CLICKING IMAGE")
+                    pyautogui.click()
+                    time.sleep(1)
+            dir_path2 = 'runs/detect/exp/crops/dog with collar/'            
+            if os.path.exists(dir_path2):           
+                # Iterate directory
+                res2 = os.listdir(dir_path2)
+                print(res2)
+                for x in range(len(res2)):
+                    print(res2[x])
+                    # CLICK THE IMAGES FOUND IN FILE
+                    var2 = dir_path2 + res2[x]
+                    var1 = pyautogui.locateOnScreen(var2)
+                    pyautogui.moveTo(var1)
+                    print("LOOKING FOR CROPPED IMAGE")
+                    print(var1)
+                    print("CLICKING IMAGE")
+                    pyautogui.click()
+                    time.sleep(1)
             IFNEXT = pyautogui.locateOnScreen("img/next.png")
             if IFNEXT:
                 pyautogui.click(IFNEXT)
@@ -850,7 +911,7 @@ def CPATCHA():
                         # print(res)
                         if lists == "True":
                             print(" FOUND TARGET ")
-                            print(" FOUND TARTGETS", target3)
+                            print(" FOUND TARGETS", target3)
                             CPATCHA()
                             break
 

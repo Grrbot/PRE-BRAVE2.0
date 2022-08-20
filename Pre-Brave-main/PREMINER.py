@@ -27,7 +27,7 @@ else:
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # YOLO LOGIC
-model = torch.hub.load("ultralytics/yolov5", "custom", path="yolov5/run7.pt",force_reload=True)
+model = torch.hub.load("ultralytics/yolov5", "custom", path="yolov5/run8-v1.pt",force_reload=True)
 model.conf = 0.82
 
 
@@ -122,7 +122,7 @@ while count < 35:
         print(" RUNNING DAY " + str(count))
         print("RUNNING PRESEARCH ACCOUNT " + str(count3))
 
-        b = '" https://presearch.com/search?q=bitcoin'
+        b = '" https://presearch.com/search?q=greyiaceae%2C'
         # START MINERS THEN MAX IT
         start = a + str(count3) + b
         if count == 1:
@@ -186,6 +186,9 @@ while count < 35:
         # SEARCH LOOP
         count2 = 1
         while count2 < 32:
+            # REFRESH PAGE FOR 403 FORBIDIN
+            pyautogui.press('f5')
+            time.sleep(3)
             # FIND SEARCH WORD
             with open('data/words.csv') as f:
                 words = f.read().split()
