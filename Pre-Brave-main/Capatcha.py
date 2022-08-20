@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 import torch
 import shutil
-
+import random
 # TEXT LOGIC
 tesspath = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 if not os.path.exists(tesspath):
@@ -23,7 +23,6 @@ model.conf = 0.82
 # THINGS TO EDIT IF MOVED!!!!
 # USER DATABASE
 database = 'data/database2.csv'
-
 
 def CHECKifworked():
     # CHECK IF FAILED AND RETRY ENTIRE SCRIP
@@ -42,7 +41,7 @@ def CHECKifworked():
         if verify:
             print("PRESSING VERIFY AND FINISHING UP")
             pyautogui.click(verify)
-            time.sleep(4)
+            time.sleep(4)            
             tryAgain = pyautogui.locateOnScreen("img/try_again.png")
             if tryAgain:
                 print(" DIDNT WORK TRYING AGAIN")
@@ -164,7 +163,7 @@ def CPATCHA():
                 print(var1)
                 print("CLICKING IMAGE")
                 time.sleep(1)
-                pyautogui.click()
+                pyautogui.click()            
             IFNEXT = pyautogui.locateOnScreen("img/next.png")
             if IFNEXT:
                 pyautogui.click(IFNEXT)
