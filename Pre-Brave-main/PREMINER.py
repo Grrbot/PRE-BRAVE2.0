@@ -193,6 +193,7 @@ while count < 35:
             with open('data/words.csv') as f:
                 words = f.read().split()
                 my_pick = random.choice(words)
+                my_pick2 = my_pick.replace(",", "", 1)
             # MOVE TO SEARCH AREA TO RUN SEARCH LOOP
             # click small x to clear search
             print(" Deleting Search terms ")
@@ -203,9 +204,10 @@ while count < 35:
             # GETTING SEARCH TERMS
             print("Getting Search Terms")
             print("Typing Search Term")
-            pyautogui.typewrite(my_pick)
+            pyautogui.typewrite(my_pick2)
             time.sleep(2)
             pyautogui.press('enter')
+            time.sleep(3)
             print("Ran Search " + str(count2))
             count2 += 1
 
