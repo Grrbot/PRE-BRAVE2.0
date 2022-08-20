@@ -73,7 +73,7 @@ def CPATCHA():
 
         print(" OPENING FOLDER TO DELETE")
         # checking whether folder exists or not
-        files = 'runs/detect/exp'
+        files = 'runs/detect/'
         try:
             shutil.rmtree(files)
         except OSError as e:

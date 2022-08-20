@@ -6,7 +6,7 @@ import os
 import keyboard
 import pandas as pd
 print("CLICKING captcha")
-time.sleep(5)
+time.sleep(1)
 # print(pyautogui.locateOnScreen("test.png"))
 from Capatcha import CPATCHA
 time.sleep(2)
