@@ -83,7 +83,7 @@ def CPATCHA():
 
         # Take Screen Shot of TARGET
         print('TAKING SCREENSHOT OF TARGET TEXT')
-        img = pyautogui.screenshot(region=(375, 146, 230, 57))
+        img = pyautogui.screenshot(region= (372, 136, 263, 79)) #(374, 146, 230, 57))
         time.sleep(1)
 
         # CONVERT IMAGE TO CV2 READABLE
@@ -121,6 +121,7 @@ def CPATCHA():
         lion = "lion"
         lionmane = "lion with mane"
         lionwith = "lion with"
+        femalelion = "female lion"
         dog = "dog"
         dogcollar = "dog with a collar"
         smilingdog = "smiling dog"
@@ -140,7 +141,7 @@ def CPATCHA():
         print("Taking ScreenShot For Cropping")
 
         # SCREEN SHOT OF IMAGES
-        capimg = pyautogui.screenshot("img.png", region=(363, 245, 392, 398))
+        capimg = pyautogui.screenshot("img.png") #region=(363, 245, 392, 398))
         time.sleep(2)
         results = model(capimg)
         crops = results.crop(save=True)
@@ -505,6 +506,13 @@ def CPATCHA():
             pyautogui.click(skip)
             time.sleep(3)
             CPATCHA()
+        if femalelion in text:
+            skip = pyautogui.locateOnScreen("img/skip.png")
+            time.sleep(2)
+            print("NEW VARIABLE CLICKING SKIP TO GET ONE IN DATABASE")
+            pyautogui.click(skip)
+            time.sleep(3)
+            CPATCHA()
         if lion in text:           
             print("POINTING AI TO FIND ALL LION IMAGES")
             # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI            
@@ -524,7 +532,7 @@ def CPATCHA():
                     print("CLICKING IMAGE")
                     pyautogui.click()
                     time.sleep(1)
-            dir_path2 = 'runs/detect/exp/crops/lion with mane/'            
+            dir_path2 = 'runs/detect/exp/crops/lion with mane on neck/'            
             if os.path.exists(dir_path2):           
                 # Iterate directory
                 res2 = os.listdir(dir_path2)
@@ -549,32 +557,12 @@ def CPATCHA():
                 CHECKifworked()
             break
         if dogcollar in text:
-            
-            print("POINTING AI TO FIND ALL DOGS WITH COLLAR IMAGES")
-            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/dog with collar/'
-            # Iterate directory
-            res = os.listdir(dir_path)
-            print(res)
-            for x in range(len(res)):
-                print(res[x])
-                # CLICK THE IMAGES FOUND IN FILE
-                var2 = dir_path + res[x]
-                var1 = pyautogui.locateOnScreen(var2)
-                pyautogui.moveTo(var1)
-                print("LOOKING FOR CROPPED IMAGE")
-                print(var1)
-                print("CLICKING IMAGE")
-                pyautogui.click()
-                time.sleep(1)
-            IFNEXT = pyautogui.locateOnScreen("img/next.png")
-            if IFNEXT:
-                pyautogui.click(IFNEXT)
-                CPATCHA()
-                CHECKifworked()
-            else:
-                CHECKifworked()
-            break
+            skip = pyautogui.locateOnScreen("img/skip.png")
+            time.sleep(2)
+            print("NEW VARIABLE CLICKING SKIP TO GET ONE IN DATABASE")
+            pyautogui.click(skip)
+            time.sleep(3)
+            CPATCHA()
         if smilingdog in text:
             
             print("POINTING AI TO FIND ALL SMILING DOGOS IMAGES")
