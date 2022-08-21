@@ -130,6 +130,7 @@ def CPATCHA():
         elephants = "elephant"
         bird = "bird"
         parrot = "parrot"
+        horsefacing = "horse facing"
         horsewith = "horse with"
         horse = "horse"
         canine = "canine"
@@ -818,6 +819,13 @@ def CPATCHA():
             else:
                 CHECKifworked()
             break
+        if horsefacing in text:
+            skip = pyautogui.locateOnScreen("img/skip.png")
+            time.sleep(2)
+            print("NEW VARIABLE CLICKING SKIP TO GET ONE IN DATABASE")
+            pyautogui.click(skip)
+            time.sleep(3)
+            CPATCHA()
         if horsewith in text:
             skip = pyautogui.locateOnScreen("img/skip.png")
             time.sleep(2)
