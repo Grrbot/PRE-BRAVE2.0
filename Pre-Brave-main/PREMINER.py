@@ -102,7 +102,7 @@ minercount = 0
 while count < 35:
 
     # PRESEARCH ACCOUNTS COUNT
-    count3 = 4
+    count3 = 1
     while count3 < 120:
 
         # GET DATABASE INFO FOR PRESEARCH LOGIN DATA
