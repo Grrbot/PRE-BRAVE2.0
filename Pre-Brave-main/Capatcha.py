@@ -71,7 +71,7 @@ def CHECKifworked():
             print("PRESSING VERIFY AND FINISHING UP")
             pyautogui.click(verify)
             time.sleep(6)            
-            skip = pyautogui.locateOnScreen("img/ski.png")
+            skip = pyautogui.locateOnScreen("img/skip.png")
             if skip:
                 print("DIDNT WORK TRYING AGAIN")
                 CPATCHA()
