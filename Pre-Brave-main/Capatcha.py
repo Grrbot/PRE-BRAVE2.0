@@ -9,7 +9,8 @@ import numpy as np
 import torch
 import shutil
 import random
-
+from PIL import Image, ImageTk, ImageSequence
+import PySimpleGUI as sg
 # TEXT LOGIC
 tesspath = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 if not os.path.exists(tesspath):
