@@ -6,22 +6,28 @@ import time
 def newbrowseruser():
 
     # CHANGING OPEN BROWSER TO NEW TAB
-    print("CLICKING HAMBURGER MENU")
+    print("CLICKING Browser HAMBURGER MENU")
     pyautogui.click(999, 53)
-    print("moving down to rewards options")
+    print("Moving down to Settings options")
     time.sleep(5)
     pyautogui.press('up', presses=4)
     pyautogui.press('enter')
-    time.sleep(4)
+    time.sleep(4)   
+    print("Clicking new tab start") 
     pyautogui.click(586, 416)
     # CHANGING REWARDS TO ON AND 10 MAX
-    print("CLICKING HAMBURGER MENU")
+    print("CLICKING Browser HAMBURGER MENU")
     pyautogui.click(999, 53)
     print("moving down to rewards options")
     time.sleep(5)
     pyautogui.press('down', presses=5)
     pyautogui.press('enter')
     time.sleep(4)
+    # MOVE WINDOW TO MAKE SURE START IS GO
+    print("MOVING WINDOW TO START POSITION")
+    pyautogui.press('up', presses=15)
+    time.sleep(2)
+    pyautogui.press('up', presses=15)
     rewardson = pyautogui.locateCenterOnScreen("img/startrewards.png")
     time.sleep(2)
     if rewardson:

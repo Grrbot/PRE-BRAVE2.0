@@ -1,0 +1,32 @@
+
+from PIL import Image, ImageTk, ImageSequence
+import PySimpleGUI as sg
+import random
+import time
+
+def GIF():
+    oldtime = time.time()
+    gif_list = ['gifs/giphy.gif','gifs/suckit.gif','gifs/3.gif','gifs/4.gif','gifs/5.gif']
+    gif = random.choice(gif_list)
+    bear = r'img/' + str(gif)
+    layout = [[sg.Image(key='-IMAGE-')]]
+    window = sg.Window('SUCK IT PRE', layout, element_justification='c', margins=(0,0), element_padding=(0,0), finalize=True)
+    sequence = [ImageTk.PhotoImage(img) for img in ImageSequence.Iterator(Image.open(bear))]
+    interframe_duration = Image.open(bear).info['duration']
+    
+    screen_width, screen_height = window.get_screen_dimensions()
+    win_width, win_height = window.size
+    x, y = (screen_width - win_width)//2, (screen_height - win_height)//2
+    
+    while True:
+        
+        for frame in sequence:
+            event, values = window.read(timeout=interframe_duration)  
+            window.move(x, y)        
+            if time.time() - oldtime > 6:
+                print ("EYYY")
+                break           
+            time.sleep(.09)
+            window['-IMAGE-'].update(data=frame)
+        window.close()
+        break

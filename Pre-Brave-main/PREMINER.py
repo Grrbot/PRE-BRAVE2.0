@@ -217,10 +217,10 @@ while count < 35:
 
         # CLOSE WINDOWS AND EXIT TABS
         print("closing all windows and exiting tabs for restart")
-        # browserExe = "brave.exe"
-        # os.system("taskkill /f /im " + browserExe)
+        browserExe = "brave.exe"
+        os.system("taskkill /f /im " + browserExe)
         # EXIT TO KEEP RUNNING IN BACKGROUND TEST !
-        pyautogui.hotkey('alt', 'f4')
+        #pyautogui.hotkey('alt', 'f4')
         time.sleep(2)
         # Close all logic
         closeall = pyautogui.locateOnScreen("img/closeall.png")
