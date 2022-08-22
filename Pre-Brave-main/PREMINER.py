@@ -8,6 +8,8 @@ import pytesseract
 import torch
 from Browsernew import newbrowseruser as nbu
 from Capatcha import CPATCHA
+from PIL import Image, ImageTk, ImageSequence
+import PySimpleGUI as sg
 
 # CMD MAX WINDOW AND MOVE TO LEFT BEFORE STARTING MAIN SCRIPT
 print("Maxing Window")
@@ -59,6 +61,7 @@ def maxmoveright():
     print('Moving Window to the right')
     pyautogui.hotkey('win', 'right')
     time.sleep(2)
+
 # LOGIN LOGIC
 def Login():
     print("FOUND LOGIN")

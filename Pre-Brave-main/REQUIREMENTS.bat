@@ -19,6 +19,7 @@ pip install pillow
 pip install pytesseract
 pip install torch
 pip install requests
+pip install pysimplegui
 cd /d %~dp0
 pip install -r requirements.txt
 

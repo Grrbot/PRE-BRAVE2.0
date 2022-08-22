@@ -1,3 +1,4 @@
+from unittest import skipIf
 from screen_search import *
 import pyautogui
 import time
@@ -8,6 +9,7 @@ import numpy as np
 import torch
 import shutil
 import random
+
 # TEXT LOGIC
 tesspath = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 if not os.path.exists(tesspath):
@@ -23,7 +25,34 @@ model.conf = 0.82
 # THINGS TO EDIT IF MOVED!!!!
 # USER DATABASE
 database = 'data/database2.csv'
-
+# GIF LOGIC 
+def GIF():
+    oldtime = time.time()
+    gif_list = ['gifs/giphy.gif','gifs/suckit.gif','gifs/3.gif','gifs/4.gif','gifs/5.gif']
+    gif = random.choice(gif_list)
+    bear = r'img/' + str(gif)
+    layout = [[sg.Image(key='-IMAGE-')]]
+    window = sg.Window('SUCK IT PRE', layout, element_justification='c', margins=(0,0), element_padding=(0,0), finalize=True)
+    sequence = [ImageTk.PhotoImage(img) for img in ImageSequence.Iterator(Image.open(bear))]
+    interframe_duration = Image.open(bear).info['duration']
+    
+    screen_width, screen_height = window.get_screen_dimensions()
+    win_width, win_height = window.size
+    x, y = (screen_width - win_width)//2, (screen_height - win_height)//2
+    
+    while True:
+        
+        for frame in sequence:
+            event, values = window.read(timeout=interframe_duration)  
+            window.move(x, y)        
+            if time.time() - oldtime > 6:
+                print ("EYYY")
+                break           
+            time.sleep(.09)
+            window['-IMAGE-'].update(data=frame)
+        window.close()
+        break
+# CHECKIF LOGIN LOGIN WORKED
 def CHECKifworked():
     # CHECK IF FAILED AND RETRY ENTIRE SCRIP
     while True:
@@ -41,10 +70,10 @@ def CHECKifworked():
         if verify:
             print("PRESSING VERIFY AND FINISHING UP")
             pyautogui.click(verify)
-            time.sleep(4)            
-            tryAgain = pyautogui.locateOnScreen("img/try_again.png")
-            if tryAgain:
-                print(" DIDNT WORK TRYING AGAIN")
+            time.sleep(6)            
+            skip = pyautogui.locateOnScreen("img/ski.png")
+            if skip:
+                print("DIDNT WORK TRYING AGAIN")
                 CPATCHA()
             # CLICK LOGIN
             print("CLICKING LOGIN")
@@ -60,10 +89,10 @@ def CHECKifworked():
             time.sleep(2)
 
         else:
+            # CELEBRATE GIF
+            GIF()
             break
-
-
-
+# MAIN CAPTHCA LOGIC
 def CPATCHA():
     # WHILE TRUE LOOP FOR FINDING THE EXACT SEARCH TERMS OUR DATASET FAVORS
     while True:
