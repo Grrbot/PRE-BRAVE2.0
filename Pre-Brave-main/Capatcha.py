@@ -33,7 +33,7 @@ def GIF():
     gif = random.choice(gif_list)
     bear = r'img/' + str(gif)
     layout = [[sg.Image(key='-IMAGE-')]]
-    window = sg.Window('SUCK IT PRE', layout, element_justification='c', margins=(0,0), element_padding=(0,0), finalize=True)
+    window = sg.Window('SUCK IT PRE', layout, element_justification='c', margins=(0,0), element_padding=(0,0), finalize=True, keep_on_top=True)
     sequence = [ImageTk.PhotoImage(img) for img in ImageSequence.Iterator(Image.open(bear))]
     interframe_duration = Image.open(bear).info['duration']
     
@@ -88,7 +88,7 @@ def CHECKifworked():
             pyautogui.moveTo(login2)
             pyautogui.click()
             time.sleep(2)
-
+            GIF()
         else:
             # CELEBRATE GIF
             GIF()
