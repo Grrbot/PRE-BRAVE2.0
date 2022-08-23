@@ -92,7 +92,9 @@ def CHECKifworked():
         else:
             # CELEBRATE GIF
             GIF()
+            time.sleep(1)
             break
+            
 # MAIN CAPTHCA LOGIC
 def CPATCHA():
     # WHILE TRUE LOOP FOR FINDING THE EXACT SEARCH TERMS OUR DATASET FAVORS

@@ -24,10 +24,10 @@ def newbrowseruser():
     pyautogui.press('enter')
     time.sleep(4)
     # MOVE WINDOW TO MAKE SURE START IS GO
-    print("MOVING WINDOW TO START POSITION")
-    pyautogui.press('up', presses=15)
+    print("MOVING WINDOW TO TOP and LEFT POSITION")
+    pyautogui.press('up', presses=40)
     time.sleep(2)
-    pyautogui.press('up', presses=15)
+    pyautogui.press('up', presses=20)
     rewardson = pyautogui.locateCenterOnScreen("img/startrewards.png")
     time.sleep(2)
     if rewardson:
