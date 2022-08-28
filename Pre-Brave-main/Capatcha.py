@@ -80,7 +80,9 @@ def CHECKifworked():
             # CLICK LOGIN
             print("CLICKING LOGIN")
             pyautogui.click(535, 514)
-            # CLICK
+            time.sleep(3)
+            # RUNNING GIF
+            GIF()
         login2 = pyautogui.locateOnScreen("img/login.png")
         time.sleep(4)
         if login2:
@@ -89,11 +91,9 @@ def CHECKifworked():
             pyautogui.moveTo(login2)
             pyautogui.click()
             time.sleep(2)
-            GIF()
-        else:
-            # CELEBRATE GIF
             break
-            
+        else:
+            break            
 # MAIN CAPTHCA LOGIC
 def CPATCHA():
     # WHILE TRUE LOOP FOR FINDING THE EXACT SEARCH TERMS OUR DATASET FAVORS
