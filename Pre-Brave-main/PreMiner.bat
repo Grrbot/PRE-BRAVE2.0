@@ -2,5 +2,6 @@
 cls
 echo A BAD ROBOT PRODUCTION !!
 echo PREMINGING TESTING V.02
-python ./PREMINER.py
+cd %~dp0
+python PREMINER.py
 pause

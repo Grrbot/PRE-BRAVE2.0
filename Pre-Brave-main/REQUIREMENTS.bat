@@ -1,5 +1,17 @@
 @echo off
+@echo off
 
+set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "%USERPROFILE%\Desktop\PREMINER.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.IconLocation = "%~dp0\grr1.ico">> %SCRIPT%
+echo oLink.TargetPath = "%~dp0\PreMiner.bat" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+
+cscript /nologo %SCRIPT%
+del %SCRIPT%
 :start
 cls
 
