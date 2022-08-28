@@ -1,3 +1,5 @@
+import imp
+from importlib.machinery import FrozenImporter
 from screen_search import *
 import pyautogui
 import time
@@ -10,6 +12,10 @@ from Browsernew import newbrowseruser as nbu
 from Capatcha import CPATCHA
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
+from gui import GUI
+
+# START GUI TO START HE SCRIPT
+GUI()
 
 # CMD MAX WINDOW AND MOVE TO LEFT BEFORE STARTING MAIN SCRIPT
 print("Maxing Window")

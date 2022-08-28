@@ -1,5 +1,4 @@
 import PySimpleGUI as sg
-
 import io
 from PIL import Image, ImageDraw, ImageTk, ImageFont
 import base64
@@ -16,20 +15,21 @@ def image_file_to_bytes(image64, size):
     img.save(bio, format='PNG')
     imgbytes = bio.getvalue()
     return imgbytes
-wcolor = ('white', 'black')
-sg.theme('Black')
-layout = [
-    
-    [sg.Image(filename= "img/gui/grr.png")],
-    # [sg.Button('START')],
-    [sg.RButton('START', image_data=image_file_to_bytes(button64, (100, 50)), button_color=wcolor, font='Any 15', pad=(0, 0), key='-close-'),
-]
-]
+def GUI():
+    wcolor = ('white', 'black')
+    sg.theme('Black')
+    layout = [
+        
+        [sg.Image(filename= "img/gui/grr.png")],
+        # [sg.Button('START')],
+        [sg.RButton('START', image_data=image_file_to_bytes(button64, (100, 50)), button_color=wcolor, font='Any 15', pad=(0, 0), key='-close-'),
+    ]
+    ]
 
-window = sg.Window("PRE-BRAVE-MINER", layout)
+    window = sg.Window("PRE-BRAVE-MINER", layout)
 
-while True:
-    event, Values = window.read()
-    if event == "-close-" or event == sg.WIN_CLOSED:
-        break
-window.close()
+    while True:
+        event, Values = window.read()
+        if event == "-close-" or event == sg.WIN_CLOSED:
+            break
+    window.close()
