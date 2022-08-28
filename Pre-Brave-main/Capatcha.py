@@ -701,33 +701,6 @@ def CPATCHA():
             else:
                 CHECKifworked()
             break
-        if cat in text:
-            
-            print("POINTING AI TO FIND ALL CAT IMAGES")
-            # CREATE LIST OF CROPPED IMAGES TO MAKE INTO VAR FOR PYAUTOGUI
-            dir_path = 'runs/detect/exp/crops/cat/'
-            # Iterate directory
-            res = os.listdir(dir_path)
-            print(res)
-            for x in range(len(res)):
-                print(res[x])
-                # CLICK THE IMAGES FOUND IN FILE
-                var2 = dir_path + res[x]
-                var1 = pyautogui.locateOnScreen(var2)
-                pyautogui.moveTo(var1)
-                print("LOOKING FOR CROPPED IMAGE")
-                print(var1)
-                print("CLICKING IMAGE")
-                pyautogui.click()
-                time.sleep(1)
-            IFNEXT = pyautogui.locateOnScreen("img/next.png")
-            if IFNEXT:
-                pyautogui.click(IFNEXT)
-                CPATCHA()
-                CHECKifworked()
-            else:
-                CHECKifworked()
-            break
         if giraffe in text:
            
             print("POINTING AI TO FIND ALL GIRAFFE IMAGES")
