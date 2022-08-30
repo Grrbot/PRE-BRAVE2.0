@@ -177,7 +177,6 @@ def CPATCHA():
         time.sleep(2)
         results = model(capimg)
         crops = results.crop(save=True)
-
         
         # RUN CLICK Command BASED ON TARGET VARIABLE
         if train in text:
