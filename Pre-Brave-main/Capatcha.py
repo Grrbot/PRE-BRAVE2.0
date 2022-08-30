@@ -178,6 +178,7 @@ def CPATCHA():
         results = model(capimg)
         crops = results.crop(save=True)
 
+        
         # RUN CLICK Command BASED ON TARGET VARIABLE
         if train in text:
             print("LOOKING FOR TRAINS TO CROP")
