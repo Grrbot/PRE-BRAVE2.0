@@ -897,7 +897,7 @@ def CPATCHA():
                         print('FOUND : \"', text2, '\"')
                         
                         # RUN CLICK CMD BASED ON TARGET VARIABLE
-                        textlist3 = ["bus","train","boat","plane","car","seaplane","bike","motorbike","living room","lion","lion with mane","bridge","dog","dog with collar","smiling dog","cat","giraffe","elephants","bedroom","conference","bird","parrot","horse","truck"]                     
+                        textlist3 = ["bus","train","boat","plane","car","seaplane","bike","motorbike","living room","lion","lion with mane","bridge","dog","dog with collar","smiling dog","giraffe","elephants","bedroom","conference","bird","parrot","horse","truck"]                     
                         target3 = [ele for ele in textlist3 if(ele in text2)]
                         print("Does string contain any list element : " + str(bool(target3)))
                         lists = str(bool(target3))
@@ -905,7 +905,6 @@ def CPATCHA():
                         if lists == "True":
                             print(" FOUND TARGET ")
                             print(" FOUND TARGETS", target3)
-                            CPATCHA()
                             break
 
                     else:
