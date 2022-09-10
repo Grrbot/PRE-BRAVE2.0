@@ -59,7 +59,7 @@ def maxmoveright():
     time.sleep(3)
     if restore2:
         time.sleep(3)
-        pyautogui.click(restore2)
+        pyautogui.click(1006, 78)
     print("Maxing Window")
     fw = pyautogui.getActiveWindow()
     fw.maximize()
@@ -190,7 +190,7 @@ while count < 35:
                 Login()
                 print("Clicking I AM Human")
                 pyautogui.click(332, 450)
-                time.sleep(2)
+                time.sleep(4)
                 CPATCHA()
 
         # SEARCH LOOP
